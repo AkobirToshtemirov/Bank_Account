@@ -6,8 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         BankAccount bankAccount = new BankAccount(12345678,
-                "Akobir Toshtemirov",
-                2_000_000_000_000f);
+                "Akobir Toshtemirov", 2_000_000_000D);
 
 
         System.out.println("Welcome to Bank Account Management App!");
@@ -18,7 +17,7 @@ public class Main {
                 3. Deposit Money.
                 4. Withdraw Money.
                 5. Exit the program""");
-            System.out.print("Choose an option from options above: ");
+            System.out.print("Choose an option from the list above: ");
             String option = sc.nextLine();
 
             switch (option){
