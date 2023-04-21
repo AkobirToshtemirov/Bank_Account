@@ -7,8 +7,8 @@ public class Main {
         BankAccount bankAccount = new BankAccount(0,
                 null, 0);
 
-
         System.out.println("Welcome to Bank Account Management App!");
+
         while(true){
             System.out.println("""
                 1. Create a Bank Account.
@@ -21,14 +21,35 @@ public class Main {
 
             switch (option){
                 case "1" -> Main.createAccount(bankAccount);
-                case "2" -> bankAccount.accountInformation();
-                case "3" -> bankAccount.depositMoney();
-                case "4" -> bankAccount.withdrawMoney();
+                case "2" -> {
+                    System.out.println();
+                    if(bankAccount.getAccountHolderName() == null) System.out.println("Enter or create bank account first!");
+                    else bankAccount.accountInformation();
+                    System.out.println();
+                }
+                case "3" -> {
+                    System.out.println();
+                    if(bankAccount.getAccountHolderName() == null) System.out.println("Enter or create bank account first!");
+                    else bankAccount.depositMoney();
+                    System.out.println();
+                }
+                case "4" -> {
+                    System.out.println();
+                    if(bankAccount.getAccountHolderName() == null) System.out.println("Enter or create bank account first!");
+                    else bankAccount.withdrawMoney();
+                    System.out.println();
+                }
                 case "5" -> {
+                    System.out.println();
                     System.out.println("Ok, task is done. Thanks for using our App!");
                     System.exit(0);
+                    System.out.println();
                 }
-                default -> System.out.println("Wrong option is selected! Try again!");
+                default -> {
+                    System.out.println();
+                    System.out.println("Wrong option is selected! Try again!");
+                    System.out.println();
+                }
             }
         }
     }
