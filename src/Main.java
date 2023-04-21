@@ -4,7 +4,7 @@ public class Main {
     static Scanner sc =  new Scanner(System.in);
 
     public static void main(String[] args) {
-        BankAccount bankAccount = new BankAccount(0,
+        BankAccount bankAccount = new BankAccount(null,
                 null, 0);
 
         System.out.println("Welcome to Bank Account Management App!");
@@ -56,9 +56,7 @@ public class Main {
 
     public static void createAccount(BankAccount bankAccount) {
         System.out.print("Enter account number: ");
-        int accountNumber = sc.nextInt();
-
-        sc.nextLine();
+        String accountNumber = sc.nextLine();
 
         System.out.print("Enter account holder name: ");
         String accountHolderName = sc.nextLine();

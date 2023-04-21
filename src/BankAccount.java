@@ -4,15 +4,15 @@ import java.util.Scanner;
 public class BankAccount {
     static final Scanner sc = new Scanner(System.in);
     static final NumberFormat nf =NumberFormat.getNumberInstance();
-    private int accountNumber;
+    private String accountNumber;
     private String accountHolderName;
     private double accountBalance;
 
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
-    public void setAccountNumber(int accountNumber){
+    public void setAccountNumber(String accountNumber){
         this.accountNumber = accountNumber;
     }
 
@@ -32,7 +32,7 @@ public class BankAccount {
         this.accountBalance = accountBalance;
     }
 
-    public BankAccount(int accountNumber, String accontHolderName, double accountBalance) {
+    public BankAccount(String accountNumber, String accontHolderName, double accountBalance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accontHolderName;
         this.accountBalance = accountBalance;
