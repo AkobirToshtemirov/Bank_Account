@@ -4,9 +4,8 @@ public class Main {
     static Scanner sc =  new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        BankAccount bankAccount = new BankAccount(12345678,
-                "Akobir Toshtemirov", 2_000_000_000D);
+        BankAccount bankAccount = new BankAccount(0,
+                null, 0);
 
 
         System.out.println("Welcome to Bank Account Management App!");
@@ -21,7 +20,7 @@ public class Main {
             String option = sc.nextLine();
 
             switch (option){
-                case "1" -> bankAccount.createAccount();
+                case "1" -> Main.createAccount(bankAccount);
                 case "2" -> bankAccount.accountInformation();
                 case "3" -> bankAccount.depositMoney();
                 case "4" -> bankAccount.withdrawMoney();
@@ -32,7 +31,22 @@ public class Main {
                 default -> System.out.println("Wrong option is selected! Try again!");
             }
         }
+    }
 
+    public static void createAccount(BankAccount bankAccount) {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
 
+        sc.nextLine();
+
+        System.out.print("Enter account holder name: ");
+        String accountHolderName = sc.nextLine();
+
+        System.out.print("Enter account balance: ");
+        double accountBalance = sc.nextDouble();
+
+        bankAccount.setAccountNumber(accountNumber);
+        bankAccount.setAccountHolderName(accountHolderName);
+        bankAccount.setAccountBalance(accountBalance);
     }
 }

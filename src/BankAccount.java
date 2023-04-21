@@ -34,8 +34,6 @@ public class BankAccount {
         this.accountBalance = accountBalance;
     }
 
-    public void createAccount(){}
-
     public void accountInformation() {
         System.out.println();
         System.out.println("*******************");
