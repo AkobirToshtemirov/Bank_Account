@@ -1,9 +1,14 @@
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class BankAccount {
     static final Scanner sc = new Scanner(System.in);
-    static final NumberFormat nf =NumberFormat.getNumberInstance();
+//    static Locale locale = new Locale("en", "USA");
+//    static final NumberFormat nf =NumberFormat.getNumberInstance(locale);
+    static final DecimalFormat df =new DecimalFormat("$##0.000#");
+
     private String accountNumber;
     private String accountHolderName;
     private double accountBalance;
@@ -47,7 +52,7 @@ public class BankAccount {
         else {
             System.out.println("Account number: " + accountNumber);
             System.out.println("Account Holder Name: " + accountHolderName);
-            System.out.println("Account Balance: $" + nf.format(accountBalance));
+            System.out.println("Account Balance: " + df.format(accountBalance));
         }
         System.out.println("*******************");
         System.out.println();
@@ -59,18 +64,21 @@ public class BankAccount {
 
         accountBalance += deposit;
 
-        System.out.println("You deposited $" + nf.format(deposit) + " amount of money!");
-        System.out.println("Now you account balance: $" + nf.format(accountBalance));
+        System.out.println("You deposited " + df.format(deposit) + " amount of money!");
+        System.out.println("Now you account balance: " + df.format(accountBalance));
     }
 
     public void withdrawMoney() {
         System.out.print("Enter the amount of money that you want to withdraw: ");
         double moneyWithdraw = sc.nextDouble();
 
-        accountBalance -= moneyWithdraw;
-
-        System.out.println("You withdrew $" + nf.format(moneyWithdraw) + " amount of money!");
-        System.out.println("Now your account balance is: $" + nf.format(accountBalance));
+        if(accountBalance - moneyWithdraw < 0)
+            System.out.println("The amount of money you withdrawing is too much. Please enter the correct amount of money!");
+        else {
+            accountBalance -= moneyWithdraw;
+            System.out.println("You withdrew " + df.format(moneyWithdraw) + " amount of money!");
+            System.out.println("Now your account balance is: " + df.format(accountBalance));
+        }
     }
 
 }
